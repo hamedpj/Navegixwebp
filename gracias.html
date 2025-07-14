@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            padding: 40px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: slideDown 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-message {
+            font-size: 2.5rem;
+            margin: 40px 0;
+            font-weight: 400;
+            animation: fadeIn 1.5s ease-out 0.6s both;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .emoji-section {
+            font-size: 3rem;
+            margin: 30px 0;
+            animation: scaleIn 1s ease-out 0.9s both;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .emoji {
+            display: inline-block;
+            margin: 0 15px;
+            animation: gentleFloat 4s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .emoji:hover {
+            transform: scale(1.1);
+        }
+
+        .emoji:nth-child(1) { animation-delay: 0s; }
+        .emoji:nth-child(2) { animation-delay: 1s; }
+        .emoji:nth-child(3) { animation-delay: 2s; }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .message-text {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            line-height: 1.8;
+            font-weight: 300;
+            animation: fadeIn 1.5s ease-out 1.2s both;
+            opacity: 0.9;
+        }
+
+        .accent-line {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            margin: 20px auto;
+            border-radius: 2px;
+            animation: expandLine 1s ease-out 1.5s both;
+        }
+
+        @keyframes expandLine {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+            100% {
+                width: 80px;
+                opacity: 1;
+            }
+        }
+
+        .subtle-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: subtleFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes subtleFloat {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translateY(0px);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateY(-15px);
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 50px 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(0%) translateY(0%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .geometric-accent {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(52, 152, 219, 0.3);
+            border-radius: 50%;
+            top: 20px;
+            right: 20px;
+            animation: gentleRotate 20s linear infinite;
+        }
+
+        @keyframes gentleRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .geometric-accent::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(46, 204, 113, 0.3);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: gentleRotate 15s linear infinite reverse;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .main-message { font-size: 2rem; }
+            .emoji-section { font-size: 2.5rem; }
+            .card { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="subtle-particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="card">
+            <div class="geometric-accent"></div>
+            
+            <h1>Gracias</h1>
+            
+            <div class="accent-line"></div>
+            
+            <div class="main-message">
+                Vuelve Pronto
+            </div>
+            
+            <div class="emoji-section">
+                <span class="emoji">😊</span>
+                <span class="emoji">👍</span>
+                <span class="emoji">🙏</span>
+            </div>
+            
+            <div class="message-text">
+                Agradecemos tu visita.<br>
+                Esperamos poder atenderte nuevamente.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createSubtleParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Inicializar efectos sutiles
+        window.addEventListener('load', () => {
+            createSubtleParticles();
+            
+            // Agregar partículas ocasionalmente
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                    document.getElementById('particles').appendChild(particle);
+                    
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.remove();
+                        }
+                    }, 8000);
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
